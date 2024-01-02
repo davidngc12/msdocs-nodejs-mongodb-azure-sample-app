@@ -2,7 +2,7 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const { getSecret } = require("./keyvault");
 
-async function putKeyVaultSecretInEnvVar() {
+/* async function putKeyVaultSecretInEnvVar() {
 
     const secretName = process.env.KEY_VAULT_SECRET_NAME_DATABASE_URL;
     const keyVaultName = process.env.KEY_VAULT_NAME;
@@ -15,12 +15,12 @@ async function putKeyVaultSecretInEnvVar() {
     connectionString = await getSecret(secretName, keyVaultName);
     process.env.DATABASE_URL = connectionString;
 
-}
+} */
 
 async function getConnectionInfo() {
   if (!process.env.DATABASE_URL) {
 
-    await putKeyVaultSecretInEnvVar();
+    //await putKeyVaultSecretInEnvVar();
 
     // still don't have a database url?
     if(!process.env.DATABASE_URL){
